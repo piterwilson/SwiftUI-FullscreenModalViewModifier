@@ -41,12 +41,12 @@ struct BaseView: View {
             }
         }
         .modal(isPresented: $showModal1) {
-            ModalView(closeAction: {
+            MyModal(dismiss: {
                 withAnimation(.easeOut(duration: 0.25)) { self.showModal1 = false }
             })
         }
         .modal(isPresented: $showModal2, transition: .opacity) {
-            ModalView(closeAction: {
+            MyModal(dismiss: {
                 withAnimation(.easeOut(duration: 0.25)) { self.showModal2 = false }
             })
         }

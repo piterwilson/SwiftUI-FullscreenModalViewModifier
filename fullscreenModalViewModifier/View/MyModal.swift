@@ -14,13 +14,18 @@ class SanityCheck {
     }
 }
 
-struct ModalView: View {
+protocol ModalView: View {
+    var dismiss: (() -> Void) { get set }
+}
+
+struct MyModal: ModalView {
     /// Simulates a class dependency
     private let sanityCheck = SanityCheck()
-    var closeAction: (() -> Void) = {}
+    /// Action used to dismiss
+    var dismiss: (() -> Void) = {}
     init() {}
-    init(closeAction: @escaping (() -> Void)) {
-        self.closeAction = closeAction
+    init(dismiss: @escaping (() -> Void)) {
+        self.dismiss = dismiss
         print("\(#file):\(#line) \(#function) Called.")
     }
     var body: some View {
@@ -33,7 +38,7 @@ struct ModalView: View {
                     .foregroundColor(.white)
                     .padding()
                 Button(action: {
-                    self.closeAction()
+                    self.dismiss()
                 }, label: {
                     Text("OK, BYE!")
                         .foregroundColor(.white)
@@ -50,6 +55,6 @@ struct ModalView: View {
 
 struct ModalView_Previews: PreviewProvider {
     static var previews: some View {
-        ModalView()
+        MyModal()
     }
 }

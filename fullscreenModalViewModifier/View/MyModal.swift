@@ -18,7 +18,7 @@ struct MyModal: ModalViewProtocol {
     /// This binding should point to the parent `View` Binding that makes this modal appear
     var isPresented: Binding<Bool>
     /// Animation used on dismiss
-    var animation: Animation = .easeOut
+    var dismissAnimation: Animation = .easeOut
     /// Simulates a class dependency
     private let sanityCheck = SanityCheck()
     

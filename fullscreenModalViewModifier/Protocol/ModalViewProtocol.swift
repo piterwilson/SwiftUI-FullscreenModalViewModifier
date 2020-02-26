@@ -9,14 +9,14 @@
 import SwiftUI
 
 protocol ModalViewProtocol: View {
-    var animation: Animation { get set }
+    var dismissAnimation: Animation { get set }
     var isPresented: Binding<Bool> { get }
     func dismiss()
 }
 
 extension ModalViewProtocol {
     func dismiss() {
-        withAnimation(animation) {
+        withAnimation(dismissAnimation) {
             self.isPresented.wrappedValue.toggle()
         }
     }

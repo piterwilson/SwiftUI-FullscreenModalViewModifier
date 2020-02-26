@@ -7,20 +7,20 @@
 import SwiftUI
 
 extension View {
-    func modal<T: View>(isPresented: Binding<Bool>, @ViewBuilder modalView: @escaping () -> T) -> some View {
-        self.modifier(FullscreenModalPresentationModifier(modalView: modalView, isPresented: isPresented, transition: nil))
+    func modal<T: View>(isPresented: Binding<Bool>, @ViewBuilder content: @escaping () -> T) -> some View {
+        self.modifier(FullscreenModalPresentationModifier(content: content, isPresented: isPresented, transition: nil))
     }
-    func modal<T: View>(isPresented: Binding<Bool>, transition: AnyTransition, @ViewBuilder modalView: @escaping () -> T) -> some View {
-        self.modifier(FullscreenModalPresentationModifier(modalView: modalView, isPresented: isPresented, transition: transition))
+    func modal<T: View>(isPresented: Binding<Bool>, transition: AnyTransition, @ViewBuilder content: @escaping () -> T) -> some View {
+        self.modifier(FullscreenModalPresentationModifier(content: content, isPresented: isPresented, transition: transition))
     }
 }
 
 struct FullscreenModalPresentationModifier<Modal>: ViewModifier where Modal: View {
     var isPresented: Binding<Bool>
-    var modalContent: () -> Modal
+    var content: () -> Modal
     var transition: AnyTransition = .slideVertical
-    public init(@ViewBuilder modalView: @escaping () -> Modal, isPresented: Binding<Bool>, transition: AnyTransition? = nil) {
-        self.modalContent = modalView
+    public init(@ViewBuilder content: @escaping () -> Modal, isPresented: Binding<Bool>, transition: AnyTransition? = nil) {
+        self.content = content
         self.isPresented = isPresented
         if let transition = transition {
             self.transition = transition
@@ -29,7 +29,7 @@ struct FullscreenModalPresentationModifier<Modal>: ViewModifier where Modal: Vie
     func body(content: Content) -> some View {
         ZStack {
             if isPresented.wrappedValue {
-                self.modalContent()
+                self.content()
                     .transition(transition)
             } else {
                 content

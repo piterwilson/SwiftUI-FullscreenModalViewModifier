@@ -7,15 +7,15 @@
 import SwiftUI
 
 extension View {
-    func modal<T: View>(isPresented: Binding<Bool>, @ViewBuilder content: @escaping () -> T) -> some View {
+    func modal<T: ModalViewProtocol>(isPresented: Binding<Bool>, @ViewBuilder content: @escaping () -> T) -> some View {
         self.modifier(FullscreenModalPresentationModifier(content: content, isPresented: isPresented, transition: nil))
     }
-    func modal<T: View>(isPresented: Binding<Bool>, transition: AnyTransition, @ViewBuilder content: @escaping () -> T) -> some View {
+    func modal<T: ModalViewProtocol>(isPresented: Binding<Bool>, transition: AnyTransition, @ViewBuilder content: @escaping () -> T) -> some View {
         self.modifier(FullscreenModalPresentationModifier(content: content, isPresented: isPresented, transition: transition))
     }
 }
 
-struct FullscreenModalPresentationModifier<Modal>: ViewModifier where Modal: View {
+struct FullscreenModalPresentationModifier<Modal>: ViewModifier where Modal: ModalViewProtocol {
     var isPresented: Binding<Bool>
     var content: () -> Modal
     var transition: AnyTransition = .slideVertical

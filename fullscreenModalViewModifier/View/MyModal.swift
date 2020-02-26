@@ -14,10 +14,6 @@ class SanityCheck {
     }
 }
 
-protocol ModalView: View {
-    var dismiss: (() -> Void) { get set }
-}
-
 struct MyModal: ModalView {
     /// Simulates a class dependency
     private let sanityCheck = SanityCheck()

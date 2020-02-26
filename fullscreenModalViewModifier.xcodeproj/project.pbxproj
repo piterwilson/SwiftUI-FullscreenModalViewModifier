@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4FA28905240670B30017747B /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA28904240670B30017747B /* ModalView.swift */; };
+		4FA28905240670B30017747B /* ModalViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA28904240670B30017747B /* ModalViewProtocol.swift */; };
 		4FEF2E41240585F8005E15B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF2E40240585F8005E15B3 /* AppDelegate.swift */; };
 		4FEF2E43240585F8005E15B3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF2E42240585F8005E15B3 /* SceneDelegate.swift */; };
 		4FEF2E47240585FD005E15B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FEF2E46240585FD005E15B3 /* Assets.xcassets */; };
@@ -20,7 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4FA28904240670B30017747B /* ModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
+		4FA28904240670B30017747B /* ModalViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewProtocol.swift; sourceTree = "<group>"; };
 		4FEF2E3D240585F8005E15B3 /* fullscreenModalViewModifier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fullscreenModalViewModifier.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FEF2E40240585F8005E15B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4FEF2E42240585F8005E15B3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -48,7 +48,7 @@
 		4FA28903240670A30017747B /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
-				4FA28904240670B30017747B /* ModalView.swift */,
+				4FA28904240670B30017747B /* ModalViewProtocol.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -194,7 +194,7 @@
 				4FEF2E41240585F8005E15B3 /* AppDelegate.swift in Sources */,
 				4FEF2E5924058655005E15B3 /* SlideVerticalTransition.swift in Sources */,
 				4FEF2E43240585F8005E15B3 /* SceneDelegate.swift in Sources */,
-				4FA28905240670B30017747B /* ModalView.swift in Sources */,
+				4FA28905240670B30017747B /* ModalViewProtocol.swift in Sources */,
 				4FEF2E5E2405873F005E15B3 /* BaseView.swift in Sources */,
 				4FEF2E5624058620005E15B3 /* FullscreenModalViewModifier.swift in Sources */,
 			);

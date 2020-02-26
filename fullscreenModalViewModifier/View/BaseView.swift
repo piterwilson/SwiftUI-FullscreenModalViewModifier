@@ -41,14 +41,10 @@ struct BaseView: View {
             }
         }
         .modal(isPresented: $showModal1) {
-            MyModal(dismiss: {
-                withAnimation(.easeOut(duration: 0.25)) { self.showModal1 = false }
-            })
+            MyModal(isPresented: self.$showModal1)
         }
         .modal(isPresented: $showModal2, transition: .opacity) {
-            MyModal(dismiss: {
-                withAnimation(.easeOut(duration: 0.25)) { self.showModal2 = false }
-            })
+            MyModal(isPresented: self.$showModal2, animation: .easeOut)
         }
     }
 }
